@@ -1,13 +1,5 @@
 FROM ubuntu:20.04
 
-ARG USERNAME=dovsuser
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
-
-# Create the user
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
-
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get -y install \
     unzip \
@@ -37,5 +29,3 @@ RUN opam install .  --deps-only --locked && \
     opam install ocaml-lsp-server -y && \
     opam user-setup install && \
     eval $(opam env)
-
-USER $USERNAME
