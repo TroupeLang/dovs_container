@@ -13,6 +13,8 @@ RUN apt-get update && apt-get -y install \
     lldb \
     patch \
     git \
+    # for VS Code live sharing
+    libicu66 \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV OPAMYES=true OPAMROOTISOK=true
