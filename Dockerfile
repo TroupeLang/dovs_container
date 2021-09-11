@@ -16,7 +16,7 @@ RUN apt-get update && apt-get -y install \
     # for VS Code live sharing
     libicu66 \
     # for dune build --watch
-    inotify-tools
+    inotify-tools \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV OPAMYES=true OPAMROOTISOK=true
