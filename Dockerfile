@@ -18,7 +18,7 @@ RUN apt-get update && apt-get -y install \
     # for dune build --watch
     inotify-tools \
     # for pretty ast generation
-    graphviz
+    graphviz \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV OPAMYES=true OPAMROOTISOK=true
