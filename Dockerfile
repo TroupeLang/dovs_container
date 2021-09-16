@@ -17,6 +17,8 @@ RUN apt-get update && apt-get -y install \
     libicu66 \
     # for dune build --watch
     inotify-tools \
+    # for pretty ast generation
+    graphviz
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV OPAMYES=true OPAMROOTISOK=true
