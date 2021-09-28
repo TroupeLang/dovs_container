@@ -31,6 +31,5 @@ RUN opam switch create 4.12.0
 COPY ./tiger.opam* .
 
 RUN opam install .  --deps-only --locked && \
-    opam install ocaml-lsp-server -y && \
     opam user-setup install && \
     eval $(opam env)
