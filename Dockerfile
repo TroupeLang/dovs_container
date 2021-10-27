@@ -15,6 +15,8 @@ RUN apt-get update && apt-get -y install \
     git \
     # for VS Code live sharing
     libicu66 \
+    # for dune build --watch
+    inotify-tools \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV OPAMYES=true OPAMROOTISOK=true
@@ -29,6 +31,5 @@ RUN opam switch create 4.12.0
 COPY ./tiger.opam* .
 
 RUN opam install .  --deps-only --locked && \
-    opam install ocaml-lsp-server -y && \
     opam user-setup install && \
     eval $(opam env)

@@ -5,5 +5,6 @@ description: "AU Compilation student project template"
 authors: "AU CS"
 homepage: "https://cs.au.dk"
 bug-reports: "N/A"
-depends: ["dune" "stdio" "menhir" "alcotest" "yojson" "merlin" "fmt" "utop"]
+depends: ["dune" "stdio" "menhir" "alcotest" "yojson" "merlin" "fmt" "utop" "ocaml-lsp-server" "ocamlformat" "ocamlformat-rpc"]
 build: ["dune" "build" "-p" name "-j" jobs]
+
