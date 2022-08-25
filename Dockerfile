@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM --platform=linux/x86-64 ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get -y install \
@@ -13,6 +13,7 @@ RUN apt-get update && apt-get -y install \
     lldb \
     patch \
     git \
+    bzip2 \
     # for VS Code live sharing
     # libicu66 \
     # for dune build --watch
