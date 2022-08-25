@@ -1,7 +1,7 @@
-FROM --platform=linux/x86-64 ubuntu:22.04
+FROM --platform=linux/x86-64 ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get -y install \
+RUN apt-get update && apt-get -y upgrade && apt-get -y install \
     unzip \
     zip \
     make \
@@ -16,10 +16,12 @@ RUN apt-get update && apt-get -y install \
     bzip2 \
     wget \
     # for VS Code live sharing
-    libicu70 \
+    libicu66 \
     # for dune build --watch
-    inotify-tools \
-  && apt-get clean && rm -rf /var/lib/apt/lists/*
+    inotify-tools 
+
+
+# RUN wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script && chmod +x ~/vsls-reqs && ~/vsls-reqs
 
 ENV OPAMYES=true OPAMROOTISOK=true
 RUN curl -sL https://github.com/ocaml/opam/releases/download/2.1.3/opam-2.1.3-x86_64-linux -o opam \
@@ -28,6 +30,7 @@ RUN curl -sL https://github.com/ocaml/opam/releases/download/2.1.3/opam-2.1.3-x8
     && opam update
 
 RUN opam switch create 4.14.0
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install these dependencies early to increase intermediate image reuse
 COPY ./tiger.opam* .
