@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get -y install \
@@ -20,12 +20,12 @@ RUN apt-get update && apt-get -y install \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV OPAMYES=true OPAMROOTISOK=true
-RUN curl -sL https://github.com/ocaml/opam/releases/download/2.1.0/opam-2.1.0-x86_64-linux -o opam \
+RUN curl -sL https://github.com/ocaml/opam/releases/download/2.1.3/opam-2.1.3-x86_64-linux -o opam \
     && install opam /usr/local/bin/opam \
     && opam init --disable-sandboxing -a -y --bare \
     && opam update
 
-RUN opam switch create 4.12.0
+RUN opam switch create 4.14.0
 
 # Install these dependencies early to increase intermediate image reuse
 COPY ./tiger.opam* .
