@@ -14,8 +14,9 @@ RUN apt-get update && apt-get -y install \
     patch \
     git \
     bzip2 \
+    wget \
     # for VS Code live sharing
-    # libicu66 \
+    libicu70 \
     # for dune build --watch
     inotify-tools \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
