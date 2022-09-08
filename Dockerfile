@@ -18,7 +18,8 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install \
     # for VS Code live sharing
     libicu66 \
     # for dune build --watch
-    inotify-tools 
+    inotify-tools \ 
+    dos2unix
 
 
 # RUN wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script && chmod +x ~/vsls-reqs && ~/vsls-reqs
