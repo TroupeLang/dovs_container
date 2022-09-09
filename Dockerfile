@@ -19,7 +19,8 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install \
     libicu66 \
     # for dune build --watch
     inotify-tools \ 
-    dos2unix
+    dos2unix \
+    colordiff
 
 
 # RUN wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script && chmod +x ~/vsls-reqs && ~/vsls-reqs
